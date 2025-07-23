@@ -45,8 +45,8 @@ In addition, this project uses **Google Firestore** (part of Firebase) to store 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/FullStack-DeliveryApp.git
-cd FullStack-DeliveryApp
+git clone https://github.com/sarakcw/DeliveryApp-FullStack.git
+cd DeliveryApp-fullStack
 ```
 ### 2. Install Dependencies
 
