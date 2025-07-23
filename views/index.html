@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        main{
+            flex:1;
+        }
+
+        footer{
+            align-self: flex-end;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+         <!--navigation-->
+        <div class="text-center">
+            <a href="/"><img src="/images/logo.jpg" class="img-thumbnail" width="400" height="400" alt="logo"></a>
+        </div>
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="/Sara/add-driver">Add Driver</a>
+                        <a class= "nav-item nav-link" href="/Sara/list-drivers">List Drivers</a>
+                        <a class= "nav-item nav-link" href="/Sara/delete-driver">Delete Driver</a>
+                        <a class= "nav-item nav-link" href="/Sara/add-package">Add Package</a>
+                        <a class= "nav-item nav-link" href="/Sara/list-packages">List Packages</a>
+                        <a class= "nav-item nav-link" href="/Sara/delete-package">Delete Package</a>
+                        <a class= "nav-item nav-link" href="/Sara/stats"> Statistics</a>
+                        <a class= "nav-item nav-link" href="/Sara/signup"> Sign Up</a>
+                        <a class= "nav-item nav-link" href="/Sara/login"> Log In</a>
+                    </div>
+                </div>
+            </div>
+        </nav> 
+
+    </header>
+    
+    <main>
+        <div class="container">
+            <h1 class="text-center">Welcome to Monash Delivery!</h1>
+            <h3>No. of Drivers: <%= driverRecords.length %></h3>
+            <h3>No. of Package: <%= packageRecords.length %></h3>
+        </div>
+
+    </main>
+
+    <!-- make footer fill the screen -->
+    <div> 
+        <footer>
+            <div class="card-group">
+                <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Project</h5>
+                    <p class="card-text">Sara Kok</p>
+                </div>
+                </div>
+                <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">About Us</h5>
+                    <p class="card-text"> Delivery App.</p>
+                </div>
+                </div>
+                <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Contact Us</h5>
+                    <p class="card-text">+61 0123 2948</p>
+                    <p class="card-text">Delivery@app.com</p>
+                </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

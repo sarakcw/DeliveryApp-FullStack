@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Package</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        main{
+            flex:1;
+        }
+
+        footer{
+            align-self: flex-end;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+         <!--navigation-->
+         <div class="text-center">
+            <a href="/"><img src="/images/logo.jpg" class="img-thumbnail" width="400" height="400" alt="logo"></a>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">  
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="/Sara/add-driver">Add Driver</a>
+                        <a class= "nav-item nav-link" href="/Sara/list-drivers">List Drivers</a>
+                        <a class= "nav-item nav-link" href="/Sara/delete-driver">Delete Driver</a>
+                        <a class= "nav-item nav-link" href="/Sara/add-package">Add Package</a>
+                        <a class= "nav-item nav-link" href="/Sara/list-packages">List Packages</a>
+                        <a class= "nav-item nav-link" href="/Sara/delete-package">Delete Package</a>
+                        <a class= "nav-item nav-link" href="/Sara/stats"> Statistics</a>
+                        <a class= "nav-item nav-link" href="/Sara/signup"> Sign Up</a>
+                        <a class= "nav-item nav-link" href="/Sara/login"> Log In</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    
+    <main>
+        <div class="container bg-light mt-4 mb-4">
+            <form action="/Sara/add-package-post" method="POST">
+                <div class="mb-3">
+                    <label for="package-title" class="form-label mt-3">Title:</label><br>
+                    <input type="text" class="form-control"id="package-title" name="packageTitle"  required>
+                </div>
+                <div>
+                    <label for="package-desc" class="form-label">Description (max 30 characters):</label>
+                    <textarea class="form-control" id="package-desc" name="packageDescription" rows="3" ></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="package-weight" class="form-label mt-3">Weight:</label><br>
+                    <input type="number" class="form-control"id="package-weight" name="packageWeight" required>
+                </div>
+                <div class="mb-3">
+                    <label for="package-destination" class="form-label mt-3">Destination:</label><br>
+                    <input type="text" class="form-control"id="package-destination" name="packageDestination" required>
+                </div>
+                <div class="mb-3">
+                    <label for="driverId" class="form-label mt-3">Driver Id:</label><br>
+                    <select class="form-select" id="package-driver-id" name="driverId"  required>
+                        <!-- list driver id for every driver in records -->
+                        <%for (let i=0; i <driverRecords.length; i++){ %>
+                        <option><%= driverRecords[i].driver_id %></option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" role="switch" id="isAllocated" name="isAllocated">
+                    <label class= "form-check-label" for="isAllocated" >Allocated</label>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary mb-3" >Submit</button>
+            </form>
+        </div>  
+    </main>
+
+</body>
+
+    <!-- make footer fill the screen -->
+    <div> 
+        <footer>
+            <div class="card-group">
+                <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Project</h5>
+                    <p class="card-text">Sara Kok</p>
+                </div>
+                </div>
+                <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">About Us</h5>
+                    <p class="card-text"> Delivery App.</p>
+                </div>
+                </div>
+                <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Contact Us</h5>
+                    <p class="card-text">+61 0123 2948</p>
+                    <p class="card-text">delivery@app.com</p>
+                </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</html>

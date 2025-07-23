@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Packages</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        main{
+            flex:1;
+        }
+
+        footer{
+            align-self: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <header>
+         <!--navigation-->
+         <div class="text-center">
+             <a href="/"><img src="/images/logo.jpg" class="img-thumbnail" width="400" height="400" alt="logo"></a>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">       
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="/Sara/add-driver">Add Driver</a>
+                        <a class= "nav-item nav-link" href="/Sara/list-drivers">List Drivers</a>
+                        <a class= "nav-item nav-link" href="/Sara/delete-driver">Delete Driver</a>
+                        <a class= "nav-item nav-link" href="/Sara/add-package">Add Package</a>
+                        <a class= "nav-item nav-link" href="/Sara/list-packages">List Packages</a>
+                        <a class= "nav-item nav-link" href="/Sara/delete-package">Delete Package</a>
+                        <a class= "nav-item nav-link" href="/Sara/stats"> Statistics</a>
+                        <a class= "nav-item nav-link" href="/Sara/signup"> Sign Up</a>
+                        <a class= "nav-item nav-link" href="/Sara/login"> Log In</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    
+    <main>
+        <div class="album py-5">
+            <div class="container">
+                
+                <h3 class="my-2">List of Packages</h3>
+
+                <div class="row row-cols-1 g-3">
+                    <div class="col">
+                        <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Weight</th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Created At</th>
+                                <th scope="col">Is Allocated?</th>
+                                <th scope="col">Driver Id</th>
+
+                              </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <% for (let i=0; i <packageRecords.length; i++){ %>
+                                <tr>
+                                <th scope="row"><%= packageRecords[i].package_id %></th>
+                                <td><%= packageRecords[i].package_title %></td>
+                                <td><%= packageRecords[i].package_description %></td>
+                                <td><%= packageRecords[i].package_weight %></td>
+                                <td><%= packageRecords[i].package_destination %></td>
+                                <td><%= packageRecords[i].package_createdAt %></td>
+                                <td><%= packageRecords[i].package_isAllocated ? 'True' : 'False' %></td>
+                                
+                                <td><!-- display auto gen id of driver and not mongo id -->
+                                    <% 
+                                    let driver = driverRecords.find(driver => driver._id.equals(packageRecords[i].driver_id));
+                                    if (driver) { %>
+
+                                    <%= driver.driver_id %>
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <form action="/Sara/delete-package-req" method="GET">
+                                        <button type="submit" class="btn btn-danger mb-3" value="<%= packageRecords[i].package_id %>" name="packageToDelete" >Delete</button>
+                                    </form>
+                                </td>
+                              </tr>
+                              <% } %>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+    <!-- make footer fill the screen -->
+    <div> 
+        <footer>
+            <div class="card-group">
+                <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Project</h5>
+                    <p class="card-text">Sara Kok</p>
+                </div>
+                </div>
+                <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">About Us</h5>
+                    <p class="card-text"> Delivery App.</p>
+                </div>
+                </div>
+                <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Contact Us</h5>
+                    <p class="card-text">+61 0123 2948</p>
+                    <p class="card-text">delivery@app.com</p>
+                </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</html>
