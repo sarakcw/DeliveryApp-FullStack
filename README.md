@@ -1,4 +1,4 @@
-# 📦 Delivery Management App - 2
+# 📦 Delivery Management App
 
 A full-stack Node.js web application designed to manage delivery drivers and packages using **MongoDB** (via Mongoose),
 offering both traditional HTML interfaces and a RESTful JSON API. 
