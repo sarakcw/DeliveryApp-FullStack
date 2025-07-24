@@ -1,6 +1,6 @@
 # 📦 Delivery Management App
 
-A full-stack Node.js web application designed to manage delivery drivers and packages using **MongoDB** (via Mongoose),
+Completed in my second semester, this is a full-stack Node.js web application designed to manage delivery drivers and packages using **MongoDB** (via Mongoose),
 offering both traditional HTML interfaces and a RESTful JSON API. 
 This project uses persistent MongoDB storage.
 In addition, this project uses **Google Firestore** (part of Firebase) to store CRUD operation counters.
